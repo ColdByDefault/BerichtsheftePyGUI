@@ -1,3 +1,4 @@
+#ColdByDefault
 notes = {
 #LF-00 Einführung
 'LF-00':{'montag':"""Auftaktveranstaltung, Kennenlernrunde, Organisatorisches
