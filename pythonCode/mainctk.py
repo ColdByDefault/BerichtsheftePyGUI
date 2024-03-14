@@ -14,7 +14,7 @@ from pathlib import Path
 
 def check_and_update_notes():
     local_notes_path = Path('pythonCode\\notes.py')  # Adjust the path as needed
-    update_url = 'https://github.com/ColdByDefault/BerichtsheftePyGUI/blob/master/pythonCode/notes.py'  # URL to check for updated data
+    update_url = 'https://raw.githubusercontent.com/ColdByDefault/BerichtsheftePyGUI/master/pythonCode/notes.py'  # URL to check for updated data
     
     # Try to fetch the updated notes data
     try:
