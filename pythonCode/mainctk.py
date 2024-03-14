@@ -12,20 +12,26 @@ import json
 from pathlib import Path
 
 
-def check_and_update_notes():
-    local_notes_path = Path('pythonCode\\notes.py')  # Adjust the path as needed
-    update_url = 'https://raw.githubusercontent.com/ColdByDefault/BerichtsheftePyGUI/master/pythonCode/notes.py'  # URL to check for updated data
+def update_notes():
+    data_url = Path('pythonCode\\notes.py')  # Adjust the path as needed
+    local_notes_path = 'https://raw.githubusercontent.com/ColdByDefault/BerichtsheftePyGUI/master/pythonCode/notes.py'  # URL to check for updated data
     
-    # Try to fetch the updated notes data
     try:
-        response = requests.get(update_url)
-        response.raise_for_status()  # Raises an exception for HTTP errors
-        updated_notes = response.json()  # Assumes the data is in JSON format
+        response = requests.get(data_url)
+        response.raise_for_status()  # Raises an HTTPError if the response was unsuccessful
+        new_notes = response.json()
 
-    except requests.RequestException as e:
-        print(f"Failed to update notes data: {e}")
+        # Assuming you're updating a notes.py Python file directly, 
+        # convert the JSON back into a Python dictionary format and overwrite notes.py
+        with open(local_notes_path, 'w') as file:
+            file.write(f"notes = {json.dumps(new_notes, indent=4)}")
 
-check_and_update_notes()
+        print("Notes updated successfully.")
+    except Exception as e:
+        print(f"Failed to update notes: {e}")
+
+# Call the update function at an appropriate place in your application
+update_notes()
 
 # Create the main window using CustomTkinter's CTk class
 root = ctk.CTk()
@@ -97,7 +103,7 @@ def save_updated_document():
         selected_lf_num = replacements['[lf_num]'].get()
         current_date = datetime.now().strftime("%d%m%Y")
         file_name = f"{current_date}{selected_lf_num}.docx"
-        doc = Document('pythonCode\Berichtshefte.docx')
+        doc = Document('pythonCode\\Berichtshefte.docx')
         
         find_and_replace(doc, replacements)
         
