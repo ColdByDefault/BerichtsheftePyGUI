@@ -13,8 +13,8 @@ from pathlib import Path
 
 
 def update_notes():
-    data_url = Path('pythonCode\\notes.py')  # Adjust the path as needed
-    local_notes_path = 'https://raw.githubusercontent.com/ColdByDefault/BerichtsheftePyGUI/master/pythonCode/notes.py'  # URL to check for updated data
+    local_notes_path = Path('pythonCode\\notes.py')  # Adjust the path as needed
+    data_url = 'https://raw.githubusercontent.com/ColdByDefault/BerichtsheftePyGUI/master/pythonCode/notes.py'  # URL to check for updated data
     
     try:
         response = requests.get(data_url)
