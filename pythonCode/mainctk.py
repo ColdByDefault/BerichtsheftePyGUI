@@ -7,6 +7,25 @@ from tkinter import messagebox
 from docx import Document
 from datetime import datetime
 from notes import notes
+import requests
+import json
+from pathlib import Path
+
+
+def check_and_update_notes():
+    local_notes_path = Path('pythonCode\\notes.py')  # Adjust the path as needed
+    update_url = 'https://github.com/ColdByDefault/BerichtsheftePyGUI/blob/master/pythonCode/notes.py'  # URL to check for updated data
+    
+    # Try to fetch the updated notes data
+    try:
+        response = requests.get(update_url)
+        response.raise_for_status()  # Raises an exception for HTTP errors
+        updated_notes = response.json()  # Assumes the data is in JSON format
+
+    except requests.RequestException as e:
+        print(f"Failed to update notes data: {e}")
+
+check_and_update_notes()
 
 # Create the main window using CustomTkinter's CTk class
 root = ctk.CTk()
