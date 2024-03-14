@@ -1,7 +1,7 @@
 #ColdByDefault
 notes = {
 #LF-00 Einführung
-'LF-00':{'montag':"""Auftaktveranstaltung, Kennenlernrunde, Organisatorisches
+'LF-00':{'montag':"""COLDAuftaktveranstaltung, Kennenlernrunde, Organisatorisches
 Ausblick Inhalte LF00, Grundlagen Teams,Der Support-Bereich im Lernsystem,
 Das RemoteLab Arbeitstechniken und Methoden, Die Pomodoro Technik, Das Pareto-Prinzip,
 Das Eisenhower-Prinzip, Ausblick auf Tag 2, Methoden: Präsentation, Diskussion, Videos, F&A""",
